@@ -39,9 +39,10 @@ helm.sh/chart: {{ include "sample-java-app-helm-charts.chart" . }}
 {{ include "sample-java-app-helm-charts.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
 {{- if .Values.labels }}
-environment: {{ .Values.environment }}
-business_unit: {{ .Values.bu}}
+environment: {{ .Values.labels.environment }}
+business_unit: {{ .Values.labels.bu}}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}

@@ -1,5 +1,5 @@
 apiVersion: v2
-name: sample-java-app
+name: sample-java-app-helm-charts
 description: A Helm chart to deploy a sample java app into Kubernetes cluster
 
 # A chart can be either an 'application' or a 'library' chart.
