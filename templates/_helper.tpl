@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "sample-java-app.name" -}}
+{{- define "sample-java-app-helm-charts.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -11,7 +11,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 If release name contains chart name it will be used as a full name.
 */}}
 
-{{- define "sample-java-app.fullname" -}}
+{{- define "sample-java-app-helm-charts.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -27,16 +27,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "sample-java-app.chart" -}}
+{{- define "sample-java-app-helm-charts.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "sample-java-app.labels" -}}
-helm.sh/chart: {{ include "sample-java-app.chart" . }}
-{{ include "sample-java-app.selectorLabels" . }}
+{{- define "sample-java-app-helm-charts.labels" -}}
+helm.sh/chart: {{ include "sample-java-app-helm-charts.chart" . }}
+{{ include "sample-java-app-helm-charts.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- if .Values.labels }}
@@ -49,7 +49,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "sample-java-app.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "sample-java-app.name" . }}
+{{- define "sample-java-app-helm-charts.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "sample-java-app-helm-charts.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
