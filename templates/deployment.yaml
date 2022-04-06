@@ -34,13 +34,13 @@ spec:
             httpGet:
               path: /
               port: {{ .Values.cont_port }}
-            initialDelaySeconds: 30
-            periodSeconds: 3
+            initialDelaySeconds: 60
+            periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /
               port: {{ .Values.cont_port }}
-            initialDelaySeconds: 30
-            periodSeconds: 3 
+            initialDelaySeconds: 60
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

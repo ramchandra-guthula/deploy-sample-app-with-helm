@@ -22,14 +22,16 @@ cont_port: 8080
 # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
 resources: 
   limits:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 500m
+    memory: 512Mi
   requests:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 250m
+    memory: 256Mi
   
 service:
   type: NodePort
   port: 30038 # You can change this port number to your port, make sure you open the same port number in AWS securit group
-  
+
+ingress:
+  enabled: ""
 
